@@ -1,6 +1,9 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
 
 router.get('/user', (req, res) => {
     console.log('In router GET /user');
-    res.sendStatus(201);
+    res.send('Hello Posty');
 })
+
+module.exports = router;
