@@ -10,7 +10,6 @@ async function getChamp() {
     try {
         const filePath = resolve(`../../codePlayground/lol_api_project/assets/dragontail-13.6.1/13.6.1/data/en_US/champion/${champ}.json`);
         contents = await readFile(filePath, {encoding: 'utf8'});
-        console.log('this is contents: ', contents);
     } catch (err) {
         console.log('This is the error: ', err.message);
     }
@@ -19,7 +18,6 @@ async function getChamp() {
 // GET that returns the Taric champions full details
 router.get('/:champ', async (req, res) => {
     champ = req.params.champ;
-    console.log('In router GET /user');
     await getChamp();
     res.send(contents);
 })
