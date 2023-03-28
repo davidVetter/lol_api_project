@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/assets/dragontail*
+/assets/
 /.pnp
 .pnp.js
 
