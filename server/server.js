@@ -5,8 +5,8 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.static('build'));
 
-const userRouter = require('./routes/user.router');
-app.use('/user', userRouter);
+const champRouter = require('./routes/champ.router');
+app.use('/champ', champRouter);
 
 app.get('/test', (req, res) => {
     console.log('in test get!');
