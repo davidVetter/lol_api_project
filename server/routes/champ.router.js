@@ -2,12 +2,13 @@ const { readFile }= require('node:fs/promises');
 const { resolve } = require('node:path');
 const express = require('express');
 const router = express.Router();
-let contents = {}
+let contents = {};
+let champ = 'Aatrox';
 
 // assigns 'contents' the value of Taric.json
-async function getTaric() {
+async function getChamp() {
     try {
-        const filePath = resolve('../../codePlayground/lol_api_project/assets/dragontail-13.6.1/13.6.1/data/en_US/champion/Taric.json');
+        const filePath = resolve(`../../codePlayground/lol_api_project/assets/dragontail-13.6.1/13.6.1/data/en_US/champion/${champ}.json`);
         contents = await readFile(filePath, {encoding: 'utf8'});
         console.log('this is contents: ', contents);
     } catch (err) {
@@ -16,9 +17,10 @@ async function getTaric() {
 }
 
 // GET that returns the Taric champions full details
-router.get('/', async (req, res) => {
+router.get('/:champ', async (req, res) => {
+    champ = req.params.champ;
     console.log('In router GET /user');
-    await getTaric();
+    await getChamp();
     res.send(contents);
 })
 
