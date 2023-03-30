@@ -2,6 +2,6 @@
 
 export default function Header() {
   return (
-    <div>The Summoners Tome</div>
+    <h1>The Summoners Tome</h1>
   )
 }
