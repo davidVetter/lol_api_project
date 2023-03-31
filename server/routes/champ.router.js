@@ -20,6 +20,7 @@ async function getChamp() {
 router.get('/:champ', async (req, res) => {
     champ = capitalizeFirstLetter(req.params.champ);
     await getChamp();
+    console.log('In champRouter: ');
     res.send(JSON.parse(contents));
 })
 

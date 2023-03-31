@@ -9,21 +9,26 @@ import ChampTags from '../ChampionDetails/ChampTags/ChampTags';
 import ChampInfoRatings from '../ChampionDetails/ChampInfoRatings/ChampInfoRatings';
 import ChampStats from '../ChampionDetails/ChampStats/ChampStats';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 function App() {
-  const [selectedChamp, setSelectedChamp] = useState('Taric');
+  const [selectedChamp, setSelectedChamp] = useState('Aatrox');
+  const [champInfo, setChampInfo] = useState({});
 
-  let champInfo = {};
-  axios.get(`http://localhost:5000/champ/${selectedChamp}`).then((response) => {
-    champInfo = response.data;
-    console.log('This is champ: ', champInfo);
-  });
+  const getChamp = useCallback(() => {
+    axios.get(`/champ/${selectedChamp}`).then((response) => {
+      console.log('response: ', response.data);
+      setChampInfo(champInfo);
+    })
+  },[selectedChamp, champInfo]);
 
-  console.log('Champ: ', champInfo);
+  useEffect(() => {
+    getChamp();
+  },[getChamp]);
 
   return (
     <div className="App">
+      {selectedChamp}
       <Header champInfo={champInfo.data} />
       <ChampTitle champInfo={champInfo.data} />
       <ChampSkins champInfo={champInfo.data} />
