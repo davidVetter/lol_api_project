@@ -12,15 +12,15 @@ import axios from 'axios';
 import { useEffect, useState, useCallback } from 'react';
 
 function App() {
-  const [selectedChamp, setSelectedChamp] = useState('Aatrox');
+  const [selectedChamp, setSelectedChamp] = useState('Garen');
   const [champInfo, setChampInfo] = useState({});
 
   const getChamp = useCallback(() => {
     axios.get(`/champ/${selectedChamp}`).then((response) => {
       console.log('response: ', response.data);
-      setChampInfo(champInfo);
+      setChampInfo(response.data);
     })
-  },[selectedChamp, champInfo]);
+  },[selectedChamp]);
 
   useEffect(() => {
     getChamp();
@@ -28,9 +28,9 @@ function App() {
 
   return (
     <div className="App">
-      {selectedChamp}
+      {champInfo.data && <>
       <Header champInfo={champInfo.data} />
-      <ChampTitle champInfo={champInfo.data} />
+      <ChampTitle champInfo={champInfo.data} selectedChamp={selectedChamp} />
       <ChampSkins champInfo={champInfo.data} />
       <ChampLore champInfo={champInfo.data} />
       <AllyTips champInfo={champInfo.data} />
@@ -38,6 +38,7 @@ function App() {
       <ChampTags champInfo={champInfo.data} />
       <ChampInfoRatings champInfo={champInfo.data} />
       <ChampStats champInfo={champInfo.data} />
+      </>}
     </div>
   );
 }
