@@ -14,7 +14,13 @@ import { useState } from 'react';
 function App() {
   const [selectedChamp, setSelectedChamp] = useState('Taric');
 
-  const champInfo = axios.get(`/champ/${selectedChamp}`);
+  let champInfo = {};
+  axios.get(`http://localhost:5000/champ/${selectedChamp}`).then((response) => {
+    champInfo = response.data;
+    console.log('This is champ: ', champInfo);
+  });
+
+  console.log('Champ: ', champInfo);
 
   return (
     <div className="App">
