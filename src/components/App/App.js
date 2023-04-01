@@ -13,7 +13,7 @@ import { useEffect, useState, useCallback } from 'react';
 import ChampMainImg from '../ChampionDetails/ChampMainImg/ChampMainImg';
 
 function App() {
-  const [selectedChamp, setSelectedChamp] = useState('Garen');
+  const [selectedChamp, setSelectedChamp] = useState('Aatrox');
   const [champInfo, setChampInfo] = useState({});
 
   const getChamp = useCallback(() => {

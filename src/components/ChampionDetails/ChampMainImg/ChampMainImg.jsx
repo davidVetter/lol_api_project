@@ -1,6 +1,6 @@
 
 export default function ChampMainImg( {champInfo, selectedChamp }) {
   return (
-    <h1>IMG HERE</h1>
+    <img alt={`${selectedChamp} from League of Legends`} src={`/img/centered/${selectedChamp}_${champInfo[selectedChamp].skins[0].num}.jpg`} />
   )
 }
