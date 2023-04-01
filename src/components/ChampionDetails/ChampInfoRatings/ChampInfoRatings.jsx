@@ -1,7 +1,11 @@
-import React from 'react'
-
-export default function ChampInfoRatings() {
+export default function ChampInfoRatings({ champInfo, selectedChamp }) {
   return (
-    <div>ChampInfoRatings</div>
-  )
+    <ul>
+      {Object.entries(champInfo[selectedChamp].info).map(
+        ([key, value], index) => (
+          <li key={index}>{`${key}: ${value}`}</li>
+        )
+      )}
+    </ul>
+  );
 }
