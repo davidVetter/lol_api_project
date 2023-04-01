@@ -3,8 +3,10 @@ import React from 'react'
 export default function AllyTips({ champInfo, selectedChamp }) {
   return (
     <>
-      <h3 style={{textAlign: 'left'}}>Ally Tips:</h3>
-      <div style={{padding: '5px', border: '2px black solid', margin: '5px'}}>{champInfo[selectedChamp].allytips}</div>
+      <h3>Ally Tips:</h3>
+      <ul>
+        {champInfo[selectedChamp].allytips.map((tip, index) => <li key={index}>{tip}</li>)}
+      </ul>
     </>
   )
 }
