@@ -11,6 +11,7 @@ import ChampStats from "../ChampionDetails/ChampStats/ChampStats";
 import axios from "axios";
 import { useEffect, useState, useCallback } from "react";
 import ChampMainImg from "../ChampionDetails/ChampMainImg/ChampMainImg";
+import ChampAbilites from "../ChampionDetails/ChampAbilities/ChampAbilites";
 
 function App() {
   const [selectedChamp, setSelectedChamp] = useState("Aatrox");
@@ -25,6 +26,7 @@ function App() {
   useEffect(() => {
     getChamp();
   }, [getChamp]);
+  
 
   return (
     <div className="App">
@@ -41,7 +43,8 @@ function App() {
           <EnemyTips champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <ChampTags champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <ChampInfoRatings champInfo={champInfo.data} selectedChamp={selectedChamp} />
-          <ChampStats champInfo={champInfo.data} />
+          <ChampStats champInfo={champInfo.data} selectedChamp={selectedChamp} />
+          <ChampAbilites champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <ChampMainImg
             champInfo={champInfo.data}
             selectedChamp={selectedChamp}
