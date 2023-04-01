@@ -29,13 +29,13 @@ function App() {
   return (
     <div className="App">
       {champInfo.data && (
-        <>
+        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
           <Header champInfo={champInfo.data} />
           <ChampTitle
             champInfo={champInfo.data}
             selectedChamp={selectedChamp}
           />
-          <ChampSkins champInfo={champInfo.data} />
+          <ChampSkins champInfo={champInfo.data} selectedChampion={selectedChamp}/>
           <ChampLore champInfo={champInfo.data} />
           <AllyTips champInfo={champInfo.data} />
           <EnemyTips champInfo={champInfo.data} />
@@ -46,7 +46,7 @@ function App() {
             champInfo={champInfo.data}
             selectedChamp={selectedChamp}
           />
-        </>
+        </div>
       )}
     </div>
   );

@@ -1,7 +1,14 @@
-import React from 'react'
+import React from "react";
 
-export default function SingleSkinCard() {
+export default function SingleSkinCard({ skin, selectedChampion }) {
   return (
-    <div>SingleSkinCard</div>
-  )
+    <>
+      <img
+        alt={`Skin of ${selectedChampion}`}
+        style={{width: '90%'}}
+        src={`/img/splash/${selectedChampion}_${skin.num}.jpg`}
+      />
+      <div>{skin.name === "default" ? selectedChampion : skin.name}</div>
+    </>
+  );
 }
