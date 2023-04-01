@@ -10,6 +10,7 @@ import ChampInfoRatings from '../ChampionDetails/ChampInfoRatings/ChampInfoRatin
 import ChampStats from '../ChampionDetails/ChampStats/ChampStats';
 import axios from 'axios';
 import { useEffect, useState, useCallback } from 'react';
+import ChampMainImg from '../ChampionDetails/ChampMainImg/ChampMainImg';
 
 function App() {
   const [selectedChamp, setSelectedChamp] = useState('Garen');
@@ -38,6 +39,7 @@ function App() {
       <ChampTags champInfo={champInfo.data} />
       <ChampInfoRatings champInfo={champInfo.data} />
       <ChampStats champInfo={champInfo.data} />
+      <ChampMainImg champInfo={champInfo.data} selectedChamp={selectedChamp} />
       </>}
     </div>
   );

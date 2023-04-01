@@ -5,6 +5,7 @@
 /assets/
 /.pnp
 .pnp.js
+public/dragontail-13.6.1
 
 # testing
 /coverage
@@ -19,6 +20,7 @@
 .env.test.local
 .env.production.local
 .env
+
 
 npm-debug.log*
 yarn-debug.log*

@@ -1,5 +1,6 @@
-export default function ChampMainImg() {
+
+export default function ChampMainImg( {champInfo, selectedChamp }) {
   return (
-    <div>ChampMainImg</div>
+    <h1>IMG HERE</h1>
   )
 }
