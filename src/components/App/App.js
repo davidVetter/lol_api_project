@@ -37,7 +37,7 @@ function App() {
           />
           <ChampSkins champInfo={champInfo.data} selectedChampion={selectedChamp}/>
           <ChampLore champInfo={champInfo.data} selectedChamp={selectedChamp} />
-          <AllyTips champInfo={champInfo.data} />
+          <AllyTips champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <EnemyTips champInfo={champInfo.data} />
           <ChampTags champInfo={champInfo.data} />
           <ChampInfoRatings champInfo={champInfo.data} />
