@@ -18,7 +18,6 @@ function App() {
   const [selectedChamp, setSelectedChamp] = useState("Taric");
   const [champInfo, setChampInfo] = useState({});
   const [champList, setChampList] = useState({});
-  const [showAbilityVideo, setShowAbilityVideo] = useState(false);
 
   const getChamp = useCallback(() => {
     axios.get(`/champ/${selectedChamp}`).then((response) => {
@@ -55,7 +54,7 @@ function App() {
           <ChampTags champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <ChampInfoRatings champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <ChampStats champInfo={champInfo.data} selectedChamp={selectedChamp} />
-          <ChampAbilites showAbilityVideo={showAbilityVideo} setShowAbilityVideo={setShowAbilityVideo} champInfo={champInfo.data} selectedChamp={selectedChamp} />
+          <ChampAbilites champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <ChampMainImg
             champInfo={champInfo.data}
             selectedChamp={selectedChamp}
