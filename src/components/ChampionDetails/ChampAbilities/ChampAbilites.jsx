@@ -15,7 +15,7 @@ export default function ChampAbilites({ champInfo, selectedChamp }) {
                   textAlign: "left",
                 }}
               >
-                {spell.name}
+                {`${spell.name} (${spell.id[spell.id.length - 1]})`}
               </span>
               <div>
                 <img alt={selectedChamp} src={`/spell/${spell.id}.png`} />

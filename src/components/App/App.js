@@ -14,7 +14,7 @@ import ChampMainImg from "../ChampionDetails/ChampMainImg/ChampMainImg";
 import ChampAbilites from "../ChampionDetails/ChampAbilities/ChampAbilites";
 
 function App() {
-  const [selectedChamp, setSelectedChamp] = useState("Aatrox");
+  const [selectedChamp, setSelectedChamp] = useState("Fizz");
   const [champInfo, setChampInfo] = useState({});
 
   const getChamp = useCallback(() => {
