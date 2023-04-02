@@ -1,17 +1,21 @@
-export default function SelectChampion({setSelectedChamp, setChampInfo}) {
+export default function SelectChampion({
+  setSelectedChamp,
+  setChampInfo,
+  champList,
+}) {
   function changeChamp(e) {
     setSelectedChamp(e.target.value);
     setChampInfo({});
   }
-  
-    return (
+
+  return (
     <select onChange={(e) => changeChamp(e)}>
         <option>Select one...</option>
-        <option value='Brand'>Brand</option>
-        <option>Akali</option>
-        <option>Quinn</option>
-        <option value="Chogath">Cho'Gath</option>
-        <option>Thresh</option>
+      {Object.entries(champList).map(
+        ([key, value], index) => (
+          <option key={index} value={value}>{`${value}`}</option>
+        )
+      )}
     </select>
-  )
+  );
 }

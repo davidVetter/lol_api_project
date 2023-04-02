@@ -17,6 +17,7 @@ import SelectChampion from "../SelectChampion/SelectChampion";
 function App() {
   const [selectedChamp, setSelectedChamp] = useState("Taric");
   const [champInfo, setChampInfo] = useState({});
+  const [champList, setChampList] = useState({});
 
   const getChamp = useCallback(() => {
     axios.get(`/champ/${selectedChamp}`).then((response) => {
@@ -24,9 +25,16 @@ function App() {
     });
   }, [selectedChamp]);
 
+  const getChampList = useCallback(() => {
+    axios.get(`/champ/champlist`).then((response) => {
+      setChampList(response.data);
+    });
+  }, []);
+
   useEffect(() => {
     getChamp();
-  }, [getChamp]);
+    getChampList();
+  }, [getChamp, getChampList]);
 
   const changeChamp = () => {
     setChampInfo({});
@@ -40,7 +48,7 @@ function App() {
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
           <Header champInfo={champInfo.data} />
           <button onClick={changeChamp}>Brand</button>
-          <SelectChampion getChamp={getChamp} setSelectedChamp={setSelectedChamp} setChampInfo={setChampInfo}/>
+          <SelectChampion champList={champList} getChamp={getChamp} setSelectedChamp={setSelectedChamp} setChampInfo={setChampInfo}/>
           <ChampTitle
             champInfo={champInfo.data}
             selectedChamp={selectedChamp}
