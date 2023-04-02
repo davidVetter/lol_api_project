@@ -1,8 +1,10 @@
 import React from "react";
+import ChampP from "../ChampAbilities/ChampP/ChampP";
 
 export default function ChampAbilites({ champInfo, selectedChamp }) {
   return (
     <div>
+      <ChampP champInfo={champInfo} selectedChamp={selectedChamp} />
       {champInfo[selectedChamp].spells.map((spell) => {
         return (
           <div key={spell.id}>
@@ -20,7 +22,7 @@ export default function ChampAbilites({ champInfo, selectedChamp }) {
               <div>
                 <img alt={selectedChamp} src={`/spell/${spell.id}.png`} />
               </div>
-              <div>&nbsp;{spell.description}</div>
+              <div>{spell.description}</div>
             </div>
           </div>
         );
