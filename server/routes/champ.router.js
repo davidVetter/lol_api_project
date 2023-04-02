@@ -7,7 +7,7 @@ let contents = {};
 let champ = 'Aatrox';
 
 // assigns 'contents' the value of the user selected champion
-async function getChamp() {
+async function getChampJsonFile() {
     try {
         const filePath = resolve(`assets/dragontail-13.6.1/13.6.1/data/en_US/champion/${champ}.json`);
         contents = await readFile(filePath, {encoding: 'utf8'});
@@ -16,12 +16,27 @@ async function getChamp() {
     }
 }
 
+async function getChampList() {
+    try {
+        const filePath = resolve(`assets/dragontail-13.6.1/13.6.1/data/en_US/championFull.json`);
+        const fullChampJsonFile = await readFile(filePath, {encoding: 'utf8'});
+        return JSON.parse(fullChampJsonFile).keys;
+    } catch (err) {
+        console.log('This is the error: ', err.message);
+    }
+}
+
+// GET that returns a list of all current champions
+router.get('/champlist', async (req, res) => {
+    res.send(await getChampList());
+})
 // GET that returns the passed champions full details
 router.get('/:champ', async (req, res) => {
     console.log('This is req.params.champ: ', req.params.champ);
     champ = capitalizeFirstLetter(req.params.champ);
-    await getChamp();
+    await getChampJsonFile();
     res.send(JSON.parse(contents));
 })
+
 
 module.exports = router;
