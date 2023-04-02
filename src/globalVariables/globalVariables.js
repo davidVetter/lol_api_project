@@ -1,1 +1,0 @@
-export const DRAGON_TAIL_VERSION = '13.6.1';
