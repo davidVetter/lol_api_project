@@ -8,12 +8,10 @@ export default function SingleAbility({
   champID,
 }) {
   const [showAbilityVideo, setShowAbilityVideo] = useState(false);
-//   const [convertedChampID, setConvertedChampID] = useState(() =>
-//     convertChampIdToFourDigits(champID)
-//   );
-const champKey = useMemo(() => {
+
+  const champKey = useMemo(() => {
     return convertChampIdToFourDigits(champID);
-}, [champID]);
+  }, [champID]);
 
   const spellKeys = {
     0: "Q",
@@ -23,7 +21,7 @@ const champKey = useMemo(() => {
   };
 
   function convertChampIdToFourDigits(champId) {
-    console.log('This ran!!');
+    console.log("This ran!!");
     let fourDigitID = "";
     if (champId.length === 1) {
       fourDigitID = `000${champId}`;
