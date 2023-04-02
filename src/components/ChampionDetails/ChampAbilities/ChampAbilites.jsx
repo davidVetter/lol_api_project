@@ -30,7 +30,7 @@ export default function ChampAbilites({ champInfo, selectedChamp }) {
               <div>
                 <img alt={selectedChamp} src={`/spell/${spell.image.full}`} />
               </div>
-              {parse(`<div>${spell.description}</div>`)};
+              {parse(`<div>${spell.description}</div>`)}
             </div>
           </div>
         );

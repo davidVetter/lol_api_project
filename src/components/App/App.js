@@ -14,7 +14,7 @@ import ChampMainImg from "../ChampionDetails/ChampMainImg/ChampMainImg";
 import ChampAbilites from "../ChampionDetails/ChampAbilities/ChampAbilites";
 
 function App() {
-  const [selectedChamp, setSelectedChamp] = useState("Aphelios");
+  const [selectedChamp, setSelectedChamp] = useState("Taric");
   const [champInfo, setChampInfo] = useState({});
 
   const getChamp = useCallback(() => {
