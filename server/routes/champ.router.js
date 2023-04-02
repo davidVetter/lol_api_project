@@ -18,6 +18,7 @@ async function getChamp() {
 
 // GET that returns the passed champions full details
 router.get('/:champ', async (req, res) => {
+    console.log('This is req.params.champ: ', req.params.champ);
     champ = capitalizeFirstLetter(req.params.champ);
     await getChamp();
     res.send(JSON.parse(contents));

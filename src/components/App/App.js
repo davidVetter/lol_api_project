@@ -12,6 +12,7 @@ import axios from "axios";
 import { useEffect, useState, useCallback } from "react";
 import ChampMainImg from "../ChampionDetails/ChampMainImg/ChampMainImg";
 import ChampAbilites from "../ChampionDetails/ChampAbilities/ChampAbilites";
+import SelectChampion from "../SelectChampion/SelectChampion";
 
 function App() {
   const [selectedChamp, setSelectedChamp] = useState("Taric");
@@ -26,6 +27,11 @@ function App() {
   useEffect(() => {
     getChamp();
   }, [getChamp]);
+
+  const changeChamp = () => {
+    setChampInfo({});
+    setSelectedChamp("Fiddlesticks")
+  }
   
 
   return (
@@ -33,6 +39,8 @@ function App() {
       {champInfo.data && (
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
           <Header champInfo={champInfo.data} />
+          <button onClick={changeChamp}>Brand</button>
+          <SelectChampion getChamp={getChamp} setSelectedChamp={setSelectedChamp} setChampInfo={setChampInfo}/>
           <ChampTitle
             champInfo={champInfo.data}
             selectedChamp={selectedChamp}
