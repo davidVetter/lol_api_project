@@ -1,5 +1,6 @@
 import React from "react";
 import ChampP from "../ChampAbilities/ChampP/ChampP";
+import parse from 'html-react-parser';
 
 export default function ChampAbilites({ champInfo, selectedChamp }) {
     const spellKeys = {
@@ -29,7 +30,7 @@ export default function ChampAbilites({ champInfo, selectedChamp }) {
               <div>
                 <img alt={selectedChamp} src={`/spell/${spell.image.full}`} />
               </div>
-              <div>{spell.description}</div>
+              {parse(`<div>${spell.description}</div>`)};
             </div>
           </div>
         );
