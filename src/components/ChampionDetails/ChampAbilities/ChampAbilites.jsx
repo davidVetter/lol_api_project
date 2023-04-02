@@ -1,16 +1,16 @@
 import React from "react";
 import ChampP from "../ChampAbilities/ChampP/ChampP";
-import parse from 'html-react-parser';
+import parse from "html-react-parser";
 
 export default function ChampAbilites({ champInfo, selectedChamp }) {
-    const spellKeys = {
-        0: 'Q',
-        1: 'W',
-        2: 'E',
-        3: 'R'
-    };
+  const spellKeys = {
+    0: "Q",
+    1: "W",
+    2: "E",
+    3: "R",
+  };
 
-    return (
+  return (
     <div>
       <ChampP champInfo={champInfo} selectedChamp={selectedChamp} />
       {champInfo[selectedChamp].spells.map((spell, index) => {
