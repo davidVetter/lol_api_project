@@ -2,7 +2,20 @@ import ChampP from "../ChampAbilities/ChampP/ChampP";
 import SingleAbility from "./SingleAbility/SingleAbility";
 
 export default function ChampAbilites({ champInfo, selectedChamp }) {
-  return (
+//   function convertChampIdToFourDigits(champId) {
+//     let fourDigitID = '';
+//     if (champId.length === 1){
+//         fourDigitID = `000${champId}`;
+//     } else if (champId.length === 2){
+//         fourDigitID = `00${champId}`;
+//     } else if (champId.length === 3) {
+//         fourDigitID = `0${champId}`;
+//     } else {
+//         fourDigitID = champId;
+//     }
+//     return fourDigitID;
+//   }
+    return (
     <div>
       <ChampP champInfo={champInfo} selectedChamp={selectedChamp} />
       {champInfo[selectedChamp].spells.map((spell, index) => {
@@ -12,6 +25,7 @@ export default function ChampAbilites({ champInfo, selectedChamp }) {
             spell={spell}
             index={index}
             selectedChamp={selectedChamp}
+            champID={champInfo[selectedChamp].key}
           />
         );
       })}
