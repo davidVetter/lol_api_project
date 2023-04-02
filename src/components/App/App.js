@@ -18,6 +18,7 @@ function App() {
   const [selectedChamp, setSelectedChamp] = useState("Taric");
   const [champInfo, setChampInfo] = useState({});
   const [champList, setChampList] = useState({});
+  const [showAbilityVideo, setShowAbilityVideo] = useState(false);
 
   const getChamp = useCallback(() => {
     axios.get(`/champ/${selectedChamp}`).then((response) => {
@@ -35,11 +36,6 @@ function App() {
     getChamp();
     getChampList();
   }, [getChamp, getChampList]);
-
-  const changeChamp = () => {
-    setChampInfo({});
-    setSelectedChamp("Fiddlesticks")
-  }
   
 
   return (
@@ -47,7 +43,6 @@ function App() {
       {champInfo.data && (
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
           <Header champInfo={champInfo.data} />
-          <button onClick={changeChamp}>Brand</button>
           <SelectChampion champList={champList} getChamp={getChamp} setSelectedChamp={setSelectedChamp} setChampInfo={setChampInfo}/>
           <ChampTitle
             champInfo={champInfo.data}
@@ -60,7 +55,7 @@ function App() {
           <ChampTags champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <ChampInfoRatings champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <ChampStats champInfo={champInfo.data} selectedChamp={selectedChamp} />
-          <ChampAbilites champInfo={champInfo.data} selectedChamp={selectedChamp} />
+          <ChampAbilites showAbilityVideo={showAbilityVideo} setShowAbilityVideo={setShowAbilityVideo} champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <ChampMainImg
             champInfo={champInfo.data}
             selectedChamp={selectedChamp}
