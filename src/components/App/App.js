@@ -18,12 +18,14 @@ function App() {
   const [selectedChamp, setSelectedChamp] = useState("Taric");
   const [champInfo, setChampInfo] = useState({});
   const [champList, setChampList] = useState({});
-  const [currentBackgroundImage, setCurrentBackgroundImage] = useState('none');
+  const [currentBackgroundImage, setCurrentBackgroundImage] = useState("none");
 
   const getChamp = useCallback(() => {
     axios.get(`/champ/${selectedChamp}`).then((response) => {
       setChampInfo(response.data);
-      setCurrentBackgroundImage(`/img/centered/${selectedChamp}_${response.data.data[selectedChamp].skins[0].num}.jpg`);
+      setCurrentBackgroundImage(
+        `/img/centered/${selectedChamp}_${response.data.data[selectedChamp].skins[0].num}.jpg`
+      );
     });
   }, [selectedChamp]);
 
@@ -44,7 +46,11 @@ function App() {
     backgroundAttachment: "fixed",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    backgroundImage: `${currentBackgroundImage === "none" ? 'none' : `url("${currentBackgroundImage}")`}`,
+    backgroundImage: `${
+      currentBackgroundImage === "none"
+        ? "none"
+        : `url("${currentBackgroundImage}")`
+    }`,
   };
 
   return (
@@ -69,12 +75,12 @@ function App() {
             champInfo={champInfo.data}
             selectedChamp={selectedChamp}
           />
+          <ChampLore champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <ChampSkins
             champInfo={champInfo.data}
             selectedChampion={selectedChamp}
             setCurrentBackgroundImage={setCurrentBackgroundImage}
           />
-          <ChampLore champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <AllyTips champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <EnemyTips champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <ChampTags champInfo={champInfo.data} selectedChamp={selectedChamp} />
