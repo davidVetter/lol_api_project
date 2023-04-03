@@ -3,7 +3,7 @@ export default function SingleSkinCard({
   selectedChampion,
   setCurrentBackgroundImage,
 }) {
-  const styling = {
+  const stylingSkinDiv = {
     width: '90%',
     backgroundColor: 'tan',
     padding: '10px',
@@ -16,7 +16,7 @@ export default function SingleSkinCard({
         console.log('click');
         setCurrentBackgroundImage(`/img/centered/${selectedChampion}_${skin.num}.jpg`);
       }}
-      style={styling}
+      style={stylingSkinDiv}
     >
       <img
         alt={`Skin of ${selectedChampion}`}
