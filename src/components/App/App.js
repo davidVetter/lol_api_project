@@ -9,7 +9,7 @@ import ChampTags from "../ChampionDetails/ChampTags/ChampTags";
 import ChampInfoRatings from "../ChampionDetails/ChampInfoRatings/ChampInfoRatings";
 import ChampStats from "../ChampionDetails/ChampStats/ChampStats";
 import axios from "axios";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import ChampMainImg from "../ChampionDetails/ChampMainImg/ChampMainImg";
 import ChampAbilites from "../ChampionDetails/ChampAbilities/ChampAbilites";
 import SelectChampion from "../SelectChampion/SelectChampion";
@@ -18,10 +18,12 @@ function App() {
   const [selectedChamp, setSelectedChamp] = useState("Taric");
   const [champInfo, setChampInfo] = useState({});
   const [champList, setChampList] = useState({});
+  const currentBackgroundImage = useRef("none");
 
   const getChamp = useCallback(() => {
     axios.get(`/champ/${selectedChamp}`).then((response) => {
       setChampInfo(response.data);
+      currentBackgroundImage.current = `/img/centered/${selectedChamp}_${response.data.data[selectedChamp].skins[0].num}.jpg`;
     });
   }, [selectedChamp]);
 
@@ -34,27 +36,61 @@ function App() {
   useEffect(() => {
     getChamp();
     getChampList();
+    // currentBackgroundImage.current = selectedChamp;
   }, [getChamp, getChampList]);
-  
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        height: "100%",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `url("${currentBackgroundImage.current}")`,
+      }}
+    >
       {champInfo.data && (
-        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Header champInfo={champInfo.data} />
-          <SelectChampion champList={champList} getChamp={getChamp} setSelectedChamp={setSelectedChamp} setChampInfo={setChampInfo}/>
+          <SelectChampion
+            champList={champList}
+            getChamp={getChamp}
+            setSelectedChamp={setSelectedChamp}
+            setChampInfo={setChampInfo}
+          />
           <ChampTitle
             champInfo={champInfo.data}
             selectedChamp={selectedChamp}
           />
-          <ChampSkins champInfo={champInfo.data} selectedChampion={selectedChamp}/>
+          <ChampSkins
+            champInfo={champInfo.data}
+            selectedChampion={selectedChamp}
+          />
           <ChampLore champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <AllyTips champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <EnemyTips champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <ChampTags champInfo={champInfo.data} selectedChamp={selectedChamp} />
-          <ChampInfoRatings champInfo={champInfo.data} selectedChamp={selectedChamp} />
-          <ChampStats champInfo={champInfo.data} selectedChamp={selectedChamp} />
-          <ChampAbilites champInfo={champInfo.data} selectedChamp={selectedChamp} />
+          <ChampInfoRatings
+            champInfo={champInfo.data}
+            selectedChamp={selectedChamp}
+          />
+          <ChampStats
+            champInfo={champInfo.data}
+            selectedChamp={selectedChamp}
+          />
+          <ChampAbilites
+            champInfo={champInfo.data}
+            selectedChamp={selectedChamp}
+          />
           <ChampMainImg
             champInfo={champInfo.data}
             selectedChamp={selectedChamp}
