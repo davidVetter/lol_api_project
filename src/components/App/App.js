@@ -9,7 +9,7 @@ import ChampTags from "../ChampionDetails/ChampTags/ChampTags";
 import ChampInfoRatings from "../ChampionDetails/ChampInfoRatings/ChampInfoRatings";
 import ChampStats from "../ChampionDetails/ChampStats/ChampStats";
 import axios from "axios";
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback } from "react";
 import ChampMainImg from "../ChampionDetails/ChampMainImg/ChampMainImg";
 import ChampAbilites from "../ChampionDetails/ChampAbilities/ChampAbilites";
 import SelectChampion from "../SelectChampion/SelectChampion";
@@ -18,12 +18,12 @@ function App() {
   const [selectedChamp, setSelectedChamp] = useState("Taric");
   const [champInfo, setChampInfo] = useState({});
   const [champList, setChampList] = useState({});
-  const currentBackgroundImage = useRef("none");
+  const [currentBackgroundImage, setCurrentBackgroundImage] = useState('none');
 
   const getChamp = useCallback(() => {
     axios.get(`/champ/${selectedChamp}`).then((response) => {
       setChampInfo(response.data);
-      currentBackgroundImage.current = `/img/centered/${selectedChamp}_${response.data.data[selectedChamp].skins[0].num}.jpg`;
+      setCurrentBackgroundImage(`/img/centered/${selectedChamp}_${response.data.data[selectedChamp].skins[0].num}.jpg`);
     });
   }, [selectedChamp]);
 
@@ -36,21 +36,19 @@ function App() {
   useEffect(() => {
     getChamp();
     getChampList();
-    // currentBackgroundImage.current = selectedChamp;
   }, [getChamp, getChampList]);
 
+  const backgroundStyling = {
+    height: "100%",
+    backgroundPosition: "center",
+    backgroundAttachment: "fixed",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: `${currentBackgroundImage === "none" ? 'none' : `url("${currentBackgroundImage}")`}`,
+  };
+
   return (
-    <div
-      className="App"
-      style={{
-        height: "100%",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundImage: `url("${currentBackgroundImage.current}")`,
-      }}
-    >
+    <div className="App" style={backgroundStyling}>
       {champInfo.data && (
         <div
           style={{
@@ -74,6 +72,7 @@ function App() {
           <ChampSkins
             champInfo={champInfo.data}
             selectedChampion={selectedChamp}
+            setCurrentBackgroundImage={setCurrentBackgroundImage}
           />
           <ChampLore champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <AllyTips champInfo={champInfo.data} selectedChamp={selectedChamp} />
