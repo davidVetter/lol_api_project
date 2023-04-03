@@ -1,12 +1,23 @@
-import React from 'react'
-
 export default function EnemyTips({ champInfo, selectedChamp }) {
+  const tipsStyling = {
+    backgroundColor: "tan",
+    borderRadius: "7px",
+    padding: "5px",
+    margin: "10px",
+    width: "90%",
+    textAlign: "left",
+  };
+
   return (
-    <>
-      <h3 style={{width: '100%', textAlign: 'left', fontWeight: 'bolder' }}>Enemy Tips:</h3>
+    <div style={tipsStyling}>
+      <h3 style={{ width: "100%", textAlign: "left", fontWeight: "bolder", margin: 0 }}>
+        Enemy Tips:
+      </h3>
       <ul>
-        {champInfo[selectedChamp].enemytips.map((tip, index) => <li key={index}>{tip}</li>)}
+        {champInfo[selectedChamp].enemytips.map((tip, index) => (
+          <li style={{margin: '5px 0'}} key={index}>{tip}</li>
+        ))}
       </ul>
-    </>
-  )
+    </div>
+  );
 }
