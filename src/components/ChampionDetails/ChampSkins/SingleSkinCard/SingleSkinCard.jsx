@@ -1,3 +1,5 @@
+import { themeColors } from "../../../../Theme/ThemeColors";
+
 export default function SingleSkinCard({
   skin,
   selectedChampion,
@@ -5,7 +7,7 @@ export default function SingleSkinCard({
 }) {
   const stylingSkinDiv = {
     width: '90%',
-    backgroundColor: 'tan',
+    backgroundColor: `${themeColors.main}`,
     padding: '10px',
     marginBottom: '10px',
     borderRadius: '7px'    

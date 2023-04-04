@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { themeColors } from "../../../Theme/ThemeColors";
 
 export default function ChampLore({ champInfo, selectedChamp }) {
   const [hover, setHover] = useState(false);
@@ -7,7 +8,7 @@ export default function ChampLore({ champInfo, selectedChamp }) {
     width: '90%',
     padding: '5px', 
     margin: '10px',
-    backgroundColor: 'tan',
+    backgroundColor: `${themeColors.main}`,
     borderRadius: '7px',
   }
   return (

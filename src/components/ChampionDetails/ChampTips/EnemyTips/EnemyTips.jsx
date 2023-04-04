@@ -1,6 +1,7 @@
+import { themeColors } from "../../../../Theme/ThemeColors";
 export default function EnemyTips({ champInfo, selectedChamp }) {
   const tipsStyling = {
-    backgroundColor: "tan",
+    backgroundColor: `${themeColors.main}`,
     borderRadius: "7px",
     padding: "5px",
     margin: "10px",
