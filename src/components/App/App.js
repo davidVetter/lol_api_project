@@ -14,6 +14,11 @@ import ChampMainImg from "../ChampionDetails/ChampMainImg/ChampMainImg";
 import ChampAbilites from "../ChampionDetails/ChampAbilities/ChampAbilites";
 import SelectChampion from "../SelectChampion/SelectChampion";
 
+export const themeColors = {
+  main: 'rgba(245, 184, 10, .6)',
+  secondary: 'rgba(75, 126, 245, 0.7)',
+}
+
 function App() {
   const [selectedChamp, setSelectedChamp] = useState("Taric");
   const [champInfo, setChampInfo] = useState({});

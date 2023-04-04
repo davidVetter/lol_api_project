@@ -1,6 +1,7 @@
+import { themeColors } from "../../../App/App";
 export default function AllyTips({ champInfo, selectedChamp }) {
   const tipsStyling = {
-    backgroundColor: 'tan',
+    backgroundColor: `${themeColors.main}`,
     borderRadius: '7px',
     padding: '5px',
     margin: '10px',
