@@ -13,7 +13,6 @@ import { useEffect, useState, useCallback } from "react";
 import ChampMainImg from "../ChampionDetails/ChampMainImg/ChampMainImg";
 import ChampAbilites from "../ChampionDetails/ChampAbilities/ChampAbilites";
 import SelectChampion from "../SelectChampion/SelectChampion";
-import { themeColors } from "../../Theme/ThemeColors";
 
 function App() {
   const [selectedChamp, setSelectedChamp] = useState("Taric");
@@ -63,6 +62,7 @@ function App() {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            whiteSpace: "normal",
           }}
         >
           <Header champInfo={champInfo.data} />
