@@ -10,12 +10,10 @@ export default function SelectChampion({
 
   return (
     <select onChange={(e) => changeChamp(e)}>
-        <option>Select one...</option>
-      {Object.entries(champList).map(
-        ([key, value], index) => (
-          <option key={index} value={value}>{`${value}`}</option>
-        )
-      )}
+      <option selected>Select one...</option>
+      {Object.entries(champList).map(([key, value], index) => (
+        <option key={index} value={value}>{`${value}`}</option>
+      ))}
     </select>
   );
 }

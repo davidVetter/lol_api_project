@@ -64,15 +64,15 @@ function App() {
           }}
         >
           <Header champInfo={champInfo.data} />
+          <ChampTitle
+            champInfo={champInfo.data}
+            selectedChamp={selectedChamp}
+          />
           <SelectChampion
             champList={champList}
             getChamp={getChamp}
             setSelectedChamp={setSelectedChamp}
             setChampInfo={setChampInfo}
-          />
-          <ChampTitle
-            champInfo={champInfo.data}
-            selectedChamp={selectedChamp}
           />
           <ChampLore champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <AllyTips champInfo={champInfo.data} selectedChamp={selectedChamp} />

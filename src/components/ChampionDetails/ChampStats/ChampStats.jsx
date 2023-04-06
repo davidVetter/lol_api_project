@@ -26,6 +26,7 @@ export default function ChampStats({ champInfo, selectedChamp }) {
           justifyContent: "space-between",
           alignItems: "center",
           display: "flex",
+          zIndex: '9999'
         }}
       >
         <h2
@@ -45,23 +46,28 @@ export default function ChampStats({ champInfo, selectedChamp }) {
           <div
             style={{
               width: "50%",
-              margin: "5px auto",
+              margin: "0 auto",
               wordWrap: "break-word",
               wordBreak: "break-all",
             }}
             key={index}
           >
-            <span
-              style={{ fontWeight: "bolder", textDecoration: "underline" }}
-            >{`${capitalizeFirstLetter(key)}`}</span>
-            <br />
             <div
               style={{
-                width: "fit-content",
-                margin: "5px auto",
-                padding: "5px",
+                fontWeight: "bolder",
+                textDecoration: "underline",
+                width: "100%",
+                margin: "0 auto",
+                padding: "5px 0",
                 backgroundColor: `${themeColors.mainText}`,
-                borderRadius: "4px",
+                borderRight: `${index % 2 === 0 ? `1px solid black`: `0`}`,
+                borderLeft: `${index % 2 === 0 ? `0`: `1px solid black`}`,
+                boxSizing: 'border-box'
+              }}
+            >{`${capitalizeFirstLetter(key)}`}</div>
+            <div
+              style={{
+                margin: "5px auto",
               }}
             >{`${value}`}</div>
           </div>

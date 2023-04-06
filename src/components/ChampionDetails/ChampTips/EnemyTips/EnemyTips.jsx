@@ -11,13 +11,34 @@ export default function EnemyTips({ champInfo, selectedChamp }) {
 
   return (
     <div style={tipsStyling}>
-      <h3 style={{ width: "100%", textAlign: "left", fontWeight: "bolder", margin: 0 }}>
-        Enemy Tips:
+      <h3
+        style={{
+          width: "100%",
+          textAlign: "left",
+          fontWeight: "bolder",
+          margin: 0,
+        }}
+      >
+        Enemy Tips
       </h3>
       <ul>
-        {champInfo[selectedChamp].enemytips.map((tip, index) => (
-          <li style={{margin: '5px 0', backgroundColor: `${themeColors.mainText}`, padding: '10px', borderRadius: '4px'}} key={index}>{tip}</li>
-        ))}
+        {champInfo[selectedChamp].enemytips.length === 0 ? (
+          <li>None found!</li>
+        ) : (
+          champInfo[selectedChamp].enemytips.map((tip, index) => (
+            <li
+              style={{
+                margin: "5px 0",
+                backgroundColor: `${themeColors.mainText}`,
+                padding: "10px",
+                borderRadius: "4px",
+              }}
+              key={index}
+            >
+              {tip}
+            </li>
+          ))
+        )}
       </ul>
     </div>
   );
