@@ -8,13 +8,6 @@ export default function ChampP({ champInfo, selectedChamp, champID }) {
     return convertChampIdToFourDigits(champID);
   }, [champID]);
 
-  const spellKeys = {
-    0: "Q",
-    1: "W",
-    2: "E",
-    3: "R",
-  };
-
   function convertChampIdToFourDigits(champId) {
     console.log("This ran!!");
     let fourDigitID = "";
