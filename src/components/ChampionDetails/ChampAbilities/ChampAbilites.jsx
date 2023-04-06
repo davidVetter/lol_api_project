@@ -12,10 +12,30 @@ export default function ChampAbilites({ champInfo, selectedChamp }) {
 
   return (
     <div style={abilitiesStyling}>
-      <h2 style={{ width: "100%", textAlign: "left", marginLeft: "10px" }}>
-        Abilites
-      </h2>
-      <ChampP champInfo={champInfo} selectedChamp={selectedChamp} />
+      <div
+        style={{
+          borderRadius: "7px 7px 0 0",
+          paddingTop: ".5em",
+          backgroundColor: "rgba(245, 184, 10, .9)",
+          boxShadow: "0 4px 2px -2px black",
+        }}
+      >
+        <h2
+          style={{
+            width: "100%",
+            textAlign: "left",
+            paddingLeft: "10px",
+            margin: 0,
+          }}
+        >
+          Abilites
+        </h2>
+      </div>
+      <ChampP
+        champInfo={champInfo}
+        selectedChamp={selectedChamp}
+        champID={champInfo[selectedChamp].key}
+      />
       {champInfo[selectedChamp].spells.map((spell, index) => {
         return (
           <SingleAbility

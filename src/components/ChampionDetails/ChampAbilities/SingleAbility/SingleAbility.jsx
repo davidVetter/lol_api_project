@@ -44,13 +44,13 @@ export default function SingleAbility({
           flexDirection: "row",
           justifyContent: "space-around",
           alignItems: "center",
-          borderBottom: "2px black solid",
+          borderTop: "2px black solid",
         }}
       >
         <div
           style={{
             flexDirection: "column",
-            width: "20%",
+            width: "25%",
             marginTop: "5px",
             marginBottom: "5px",
           }}
@@ -58,8 +58,9 @@ export default function SingleAbility({
           <div
             style={{
               fontWeight: "bolder",
-              textDecoration: "underline",
               width: "100%",
+              marginBottom: "5px",
+              padding: '5px'
             }}
           >
             {`${spell.name} (${spellKeys[index]})`}
@@ -70,10 +71,23 @@ export default function SingleAbility({
             onClick={() => setShowAbilityVideo(!showAbilityVideo)}
           />
         </div>
-        <div style={{ width: "60%" }}>
+        <div
+          style={{
+            width: "70%",
+            backgroundColor: "rgba(245, 184, 10, .8)",
+            borderRadius: "3px",
+            padding: "5px",
+            margin: "5px auto",
+          }}
+        >
           {showAbilityVideo && (
             <>
-              <video autoPlay controls width="100%">
+              <video
+                autoPlay
+                controls
+                width="100%"
+                style={{ borderRadius: "4px", marginTop: "5px" }}
+              >
                 <source
                   src={`https://d28xe8vt774jo5.cloudfront.net/champion-abilities/${champKey}/ability_${champKey}_${spellKeys[index]}1.mp4`}
                   type="video/mp4"
