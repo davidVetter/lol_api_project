@@ -37,32 +37,52 @@ export default function SingleAbility({
 
   return (
     <div key={spell.id}>
-      <div>
-        <span
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          alignItems: "center",
+          borderBottom: "2px black solid",
+        }}
+      >
+        <div
           style={{
-            fontWeight: "bolder",
-            textDecoration: "underline",
-            width: "100%",
-            textAlign: "left",
+            flexDirection: "column",
+            width: "20%",
+            marginTop: "5px",
+            marginBottom: "5px",
           }}
         >
-          {`${spell.name} (${spellKeys[index]})`}
-        </span>
-        <div>
-          <img alt={selectedChamp} src={`/spell/${spell.image.full}`} />
-          <button onClick={() => setShowAbilityVideo(!showAbilityVideo)}>
-            Video
-          </button>
-          {showAbilityVideo && (
-            <video controls width="250">
-              <source
-                src={`https://d28xe8vt774jo5.cloudfront.net/champion-abilities/${champKey}/ability_${champKey}_${spellKeys[index]}1.mp4`}
-                type="video/mp4"
-              ></source>
-            </video>
-          )}
+          <div
+            style={{
+              fontWeight: "bolder",
+              textDecoration: "underline",
+              width: "100%",
+            }}
+          >
+            {`${spell.name} (${spellKeys[index]})`}
+          </div>
+          <img
+            alt={selectedChamp}
+            src={`/spell/${spell.image.full}`}
+            onClick={() => setShowAbilityVideo(!showAbilityVideo)}
+          />
         </div>
-        {parse(`<div>${spell.description}</div>`)}
+        <div style={{ width: "60%" }}>
+          {showAbilityVideo && (
+            <>
+              <video autoPlay controls width="100%">
+                <source
+                  src={`https://d28xe8vt774jo5.cloudfront.net/champion-abilities/${champKey}/ability_${champKey}_${spellKeys[index]}1.mp4`}
+                  type="video/mp4"
+                ></source>
+              </video>
+            </>
+          )}
+          {parse(`<div>${spell.description}</div>`)}
+        </div>
       </div>
     </div>
   );
