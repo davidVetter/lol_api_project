@@ -1,7 +1,7 @@
 import { themeColors } from "../../../../Theme/ThemeColors";
 export default function AllyTips({ champInfo, selectedChamp }) {
   const tipsStyling = {
-    backgroundColor: `${themeColors.main}`,
+    backgroundColor: `${themeColors.mainText}`,
     borderRadius: '7px',
     padding: '5px',
     margin: '10px',
@@ -16,7 +16,7 @@ export default function AllyTips({ champInfo, selectedChamp }) {
       </h3>
       <ul>
         {champInfo[selectedChamp].allytips.map((tip, index) => (
-          <li style={{margin: '5px 0'}} key={index}>{tip}</li>
+          <li style={{margin: '5px 0', backgroundColor: `${themeColors.mainText}`, padding: '10px', borderRadius: '4px'}}  key={index}>{tip}</li>
         ))}
       </ul>
     </div>

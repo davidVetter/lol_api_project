@@ -8,7 +8,7 @@ export default function ChampLore({ champInfo, selectedChamp }) {
     width: '90%',
     padding: '5px', 
     margin: '10px',
-    backgroundColor: `${themeColors.main}`,
+    backgroundColor: `${themeColors.mainDark}`,
     borderRadius: '7px',
   }
   return (

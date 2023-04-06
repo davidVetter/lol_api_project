@@ -79,11 +79,6 @@ function App() {
           <ChampLore champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <AllyTips champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <EnemyTips champInfo={champInfo.data} selectedChamp={selectedChamp} />
-          <ChampSkins
-            champInfo={champInfo.data}
-            selectedChampion={selectedChamp}
-            setCurrentBackgroundImage={setCurrentBackgroundImage}
-          />
           <ChampTags champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <ChampInfoRatings
             champInfo={champInfo.data}
@@ -97,10 +92,15 @@ function App() {
             champInfo={champInfo.data}
             selectedChamp={selectedChamp}
           />
-          <ChampMainImg
+          <ChampSkins
+            champInfo={champInfo.data}
+            selectedChampion={selectedChamp}
+            setCurrentBackgroundImage={setCurrentBackgroundImage}
+          />
+          {/* <ChampMainImg
             champInfo={champInfo.data}
             selectedChamp={selectedChamp}
-          />
+          /> */}
         </div>
       )}
     </div>
