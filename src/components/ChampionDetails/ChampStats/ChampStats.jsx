@@ -1,5 +1,7 @@
 import { themeColors } from "../../../Theme/ThemeColors";
 import capitalizeFirstLetter from "../../../modules/capitalizeFirstLetter";
+import ChampTags from "../ChampTags/ChampTags";
+import ChampInfoRatings from "../ChampInfoRatings/ChampInfoRatings";
 export default function ChampStats({ champInfo, selectedChamp }) {
   const champStatsStyling = {
     backgroundColor: `${themeColors.main}`,
@@ -16,15 +18,19 @@ export default function ChampStats({ champInfo, selectedChamp }) {
       <div
         style={{
           borderRadius: "7px 7px 0 0",
-          paddingTop: ".5em",
+          padding: ".5em 0",
           backgroundColor: "rgba(245, 184, 10, .9)",
           boxShadow: "0 4px 2px -2px black",
           width: "100%",
+          height: "100%",
+          justifyContent: "space-between",
+          alignItems: "center",
+          display: "flex",
         }}
       >
         <h2
           style={{
-            width: "100%",
+            width: "60%",
             textAlign: "left",
             paddingLeft: "10px",
             margin: 0,
@@ -32,17 +38,36 @@ export default function ChampStats({ champInfo, selectedChamp }) {
         >
           Stats
         </h2>
+        <ChampTags champInfo={champInfo} selectedChamp={selectedChamp} />
       </div>
       {Object.entries(champInfo[selectedChamp].stats).map(
         ([key, value], index) => (
-          <div style={{ width: "50%", margin: "5px auto" }} key={index}>
-            <span style={{ fontWeight: "bolder" }}>{`${capitalizeFirstLetter(
-              key
-            )}`}</span>
-            : {`${value}`}
+          <div
+            style={{
+              width: "50%",
+              margin: "5px auto",
+              wordWrap: "break-word",
+              wordBreak: "break-all",
+            }}
+            key={index}
+          >
+            <span
+              style={{ fontWeight: "bolder", textDecoration: "underline" }}
+            >{`${capitalizeFirstLetter(key)}`}</span>
+            <br />
+            <div
+              style={{
+                width: "fit-content",
+                margin: "5px auto",
+                padding: "5px",
+                backgroundColor: `${themeColors.mainText}`,
+                borderRadius: "4px",
+              }}
+            >{`${value}`}</div>
           </div>
         )
       )}
+      <ChampInfoRatings champInfo={champInfo} selectedChamp={selectedChamp} />
     </div>
   );
 }

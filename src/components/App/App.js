@@ -5,8 +5,6 @@ import ChampLore from "../ChampionDetails/ChampLore/ChampLore";
 import ChampSkins from "../ChampionDetails/ChampSkins/ChampSkins";
 import AllyTips from "../ChampionDetails/ChampTips/AllyTips/AllyTips";
 import EnemyTips from "../ChampionDetails/ChampTips/EnemyTips/EnemyTips";
-import ChampTags from "../ChampionDetails/ChampTags/ChampTags";
-import ChampInfoRatings from "../ChampionDetails/ChampInfoRatings/ChampInfoRatings";
 import ChampStats from "../ChampionDetails/ChampStats/ChampStats";
 import axios from "axios";
 import { useEffect, useState, useCallback } from "react";
@@ -79,11 +77,6 @@ function App() {
           <ChampLore champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <AllyTips champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <EnemyTips champInfo={champInfo.data} selectedChamp={selectedChamp} />
-          <ChampTags champInfo={champInfo.data} selectedChamp={selectedChamp} />
-          <ChampInfoRatings
-            champInfo={champInfo.data}
-            selectedChamp={selectedChamp}
-          />
           <ChampStats
             champInfo={champInfo.data}
             selectedChamp={selectedChamp}

@@ -5,10 +5,10 @@ export default function ChampInfoRatings({ champInfo, selectedChamp }) {
     <div
       style={{
         fontWeight: "Bolder",
-        backgroundColor: themeColors.main,
-        width: "90%",
-        margin: "5px",
-        borderRadius: "7px",
+        backgroundColor: themeColors.mainDark,
+        width: "100%",
+        borderRadius: "0 0 7px 7px",
+        boxShadow: "0 -4px 2px -2px black",
       }}
     >
       Rating

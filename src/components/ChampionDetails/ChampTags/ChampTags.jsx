@@ -7,16 +7,16 @@ export default function ChampTags({ champInfo, selectedChamp }) {
         backgroundColor: `${themeColors.main}`,
         width: "90%",
         borderRadius: "7px",
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'start',
-        alignItems: 'center'
-
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      {champInfo[selectedChamp].tags.map((tag, index) => (
-        <div style={{width: '100%', fontWeight: 'bolder'}} key={index}>{tag}</div>
-      ))}
+      <div>
+        <strong>Tags: </strong>
+        {champInfo[selectedChamp].tags.join(" | ")}
+      </div>
     </div>
   );
 }
