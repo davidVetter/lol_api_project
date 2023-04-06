@@ -74,7 +74,7 @@ export default function SingleAbility({
         <div
           style={{
             width: "70%",
-            backgroundColor: "rgba(245, 184, 10, .8)",
+            backgroundColor: "rgba(245, 184, 10, .7)",
             borderRadius: "3px",
             padding: "5px",
             margin: "5px auto",
