@@ -15,7 +15,7 @@ export default function ChampTags({ champInfo, selectedChamp }) {
       }}
     >
       {champInfo[selectedChamp].tags.map((tag, index) => (
-        <div style={{width: '100%'}} key={index}>{tag}</div>
+        <div style={{width: '100%', fontWeight: 'bolder'}} key={index}>{tag}</div>
       ))}
     </div>
   );
