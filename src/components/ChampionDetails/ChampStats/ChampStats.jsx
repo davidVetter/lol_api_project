@@ -62,7 +62,8 @@ export default function ChampStats({ champInfo, selectedChamp }) {
                 backgroundColor: `${themeColors.mainText}`,
                 borderRight: `${index % 2 === 0 ? `1px solid black`: `0`}`,
                 borderLeft: `${index % 2 === 0 ? `0`: `1px solid black`}`,
-                boxSizing: 'border-box'
+                boxSizing: 'border-box',
+                whiteSpace: 'nowrap'
               }}
             >{`${capitalizeFirstLetter(key)}`}</div>
             <div
