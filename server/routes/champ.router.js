@@ -1,4 +1,4 @@
-const { readFile, readdir }= require('node:fs/promises');
+const { readFile }= require('node:fs/promises');
 const { resolve } = require('node:path');
 const express = require('express');
 const router = express.Router();
@@ -35,24 +35,11 @@ async function getChampList() {
     }
 }
 
-async function getChampIconList() {
-    try {
-        const dirPath = resolve(`assets/dragontail-13.6.1/13.6.1/img/champion/`);
-        const champIconFileList = await readdir(dirPath);
-        return champIconFileList;
-    } catch (err) {
-        console.log('This is the error: ', err);
-    }
-}
-
 // GET that returns a list of all current champions
 router.get('/champlist', async (req, res) => {
     res.send(await getChampList());
 })
-// GET that returns a list of all current champions icons
-router.get('/icons', async (req, res) => {
-    res.send( await getChampIconList());
-})
+
 // GET that returns the passed champions full details
 router.get('/:champ', async (req, res) => {
     champ = capitalizeFirstLetter(req.params.champ);
