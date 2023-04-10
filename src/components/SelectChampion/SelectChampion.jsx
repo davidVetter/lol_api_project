@@ -12,15 +12,15 @@ export default function SelectChampion({
         <img
           alt={`${value} from League of Legends`}
           style={{ width: "90%" }}
-          src={`/icon/${value}.png`}
+          src={`/icon/${value[1]}.png`}
         />
-        {value}
+        {value[1]}
       </div>
     ),
   }));
 
   function changeChamp(e) {
-    setSelectedChamp(e.value);
+    setSelectedChamp(e.value[1]);
     setChampInfo({});
   }
 

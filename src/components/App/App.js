@@ -15,7 +15,7 @@ import SelectChampion from "../SelectChampion/SelectChampion";
 function App() {
   const [selectedChamp, setSelectedChamp] = useState("Taric");
   const [champInfo, setChampInfo] = useState({});
-  const [champList, setChampList] = useState({});
+  const [champList, setChampList] = useState([]);
   const [currentBackgroundImage, setCurrentBackgroundImage] = useState("none");
 
   const getChamp = useCallback(() => {
