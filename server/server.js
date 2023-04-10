@@ -8,6 +8,7 @@ app.use(express.static('build'));
 app.use('/img', express.static(path.join(__dirname, '../assets/dragontail-13.6.1/img/champion/')));
 app.use('/spell', express.static(path.join(__dirname, '../assets/dragontail-13.6.1/13.6.1/img/spell/')));
 app.use('/passive', express.static(path.join(__dirname, '../assets/dragontail-13.6.1/13.6.1/img/passive/')));
+app.use('/icon', express.static(path.join(__dirname, '../assets/dragontail-13.6.1/13.6.1/img/champion/')));
 
 const champRouter = require('./routes/champ.router');
 app.use('/champ', champRouter);

@@ -73,6 +73,8 @@ function App() {
             getChamp={getChamp}
             setSelectedChamp={setSelectedChamp}
             setChampInfo={setChampInfo}
+            champInfo={champInfo.data}
+            selectedChamp={selectedChamp}
           />
           <ChampLore champInfo={champInfo.data} selectedChamp={selectedChamp} />
           <AllyTips champInfo={champInfo.data} selectedChamp={selectedChamp} />
